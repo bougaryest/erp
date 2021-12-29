@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_e_invoice_egypt_account_tax_form" model="ir.ui.view">
+        <field name="name">view.e.invoice.egypt.account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group string="E-Invoice">
+                    <group>
+                        <field name="eta_code" required="1"/>
+                        <field name="eta_sub_type_code"/>
+                    </group>
+                    <group/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
