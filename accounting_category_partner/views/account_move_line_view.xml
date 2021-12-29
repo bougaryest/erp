@@ -1,0 +1,15 @@
+<odoo>
+
+    <record id="view_accounting_category_partner_account_move_line_filter" model="ir.ui.view">
+        <field name="name">view.accounting.category.partner.account.move.line.filter</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='group_by_partner']" position="after">
+                <filter string="Category" name="group_by_account_category" domain="[]"
+                        context="{'group_by': 'partner_account_category_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
