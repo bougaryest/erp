@@ -1,0 +1,8 @@
+<odoo>
+
+<!--    <template id="report_electric_invoice_assets_common" name="report font assets" inherit_id="web.report_assets_common">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <link rel='stylesheet' href="/electric_invoice/static/src/css/reports.css"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+</odoo>
