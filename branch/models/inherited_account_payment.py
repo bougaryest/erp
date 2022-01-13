@@ -1,0 +1,40 @@
+# Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
+
+from odoo import api, fields, models, _
+from odoo.exceptions import Warning
+
+MAP_INVOICE_TYPE_PARTNER_TYPE = {
+    'out_invoice': 'customer',
+    'out_refund': 'customer',
+    'in_invoice': 'supplier',
+    'in_refund': 'supplier',
+}
+
+class AccountPayment(models.Model):
+    _inherit = 'account.payment'
+
+    @api.model
+    def default_get(self, fields):
+        rec = super(AccountPayment, self).default_get(fields)
+        invoice_defaults = self.reconciled_invoice_ids
+        if invoice_defaults and len(invoice_defaults) == 1:
+            invoice = invoice_defaults[0]
+            rec['branch_id'] = invoice.branch_id.id
+        return rec
+
+    branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
+                                check_company=True)
+
+    @api.onchange('company_id')
+    def onchange_company_id(self):
+        if self.company_id and self.branch_id.company_id.id != self.company_id.id:
+            self.branch_id = False
+
+    @api.onchange('branch_id')
+    def _onchange_branch_id(self):
+        allowed_branch_ids = self._context.get("allowed_branch_ids", [])
+        if allowed_branch_ids and self.branch_id and self.branch_id.id not in allowed_branch_ids:
+            self.branch_id = allowed_branch_ids[0]
+            raise Warning(
+                _("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that."))
+

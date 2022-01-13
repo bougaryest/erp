@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Extra Rights of Branch -->
+        <record id="module_category_extra_rights_branch" model="ir.module.category">
+            <field name="name">Branches</field>
+            <field name="description">Extra Rights Branches</field>
+        </record>
+
+        <record id="group_multi_branch" model="res.groups">
+            <field name="name">Multi Branches</field>
+            <field name="category_id" ref="branch.module_category_extra_rights_branch"/>
+        </record>
+
+        <record id="group_not_select_branch" model="res.groups">
+            <field name="name">Not Select Branch</field>
+            <field name="category_id" ref="branch.module_category_extra_rights_branch"/>
+        </record>
+    </data>
+</odoo>

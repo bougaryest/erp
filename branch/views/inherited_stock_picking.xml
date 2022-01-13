@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Stock Picking Inherit Form View to Modify it -->
+        <record id="view_picking_form_inherit_branch" model="ir.ui.view">
+            <field name="name">view.picking.form.inherit.branch</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='extra']/group[1]/group[@name='other_infos']/field[@name='company_id']"
+                       position="after">
+
+                    <field name="branch_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_picking_form_readonly_branch" model="ir.ui.view">
+            <field name="name">view.picking.form.readonly.branch</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="branch.view_picking_form_inherit_branch"/>
+            <field name="groups_id" eval="[(6, 0, [ref('branch.group_not_select_branch')])]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='branch_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

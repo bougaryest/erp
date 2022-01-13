@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Sale order Inherit Form View to Modify it -->
+        <record id="view_pos_order_form_inherit_branch" model="ir.ui.view">
+            <field name="name">view.order.form.inherit.branch</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="branch_id" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Sale order Inherit search View to Modify it -->
+        <record id="view_pos_order_filter_inherit_branch" model="ir.ui.view">
+            <field name="name">view.sales.order.filter.inherit.branch</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//filter[@name='order_month']" position="after">
+                    <filter string="Branch" name="branch" domain="[]" context="{'group_by':'branch_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
