@@ -1,0 +1,17 @@
+<odoo>
+       <record id="view_pos_config_branch"  model="ir.ui.view">
+            <field name="name">pos.config.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='company']" position="after">
+                    <div id="branch" class="col-12 col-lg-6 o_setting_box" groups="base.group_multi_company">
+                            <div class="o_setting_right_pane">
+                                <label for="branch_id"/>
+                                <div><field name="branch_id"/></div>
+                            </div>
+                        </div>
+                </xpath>
+            </field>
+        </record>
+</odoo>

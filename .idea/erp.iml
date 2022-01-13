@@ -4,5 +4,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="addons" />
+    <orderEntry type="module" module-name="odoo15-custom_modules" />
   </component>
 </module>
