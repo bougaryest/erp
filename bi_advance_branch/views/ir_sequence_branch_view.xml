@@ -20,7 +20,37 @@
                             <group>
                                 <field name="company_id"/>
                                 <field name="telephone"/>
-                                <field name="address"/>
+
+                                <span class="o_form_label o_td_label" name="address_name">
+                                    <b>Address</b>
+                                </span>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"
+                                    />
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"
+                                    />
+                                    <field name="city" placeholder="City" class="o_address_city"
+                                    />
+                                    <field name="state_id" class="o_address_state" placeholder="State"
+                                           options="{'no_open': True, 'no_quick_create': True}"/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"
+                                    />
+                                    <field name="country_id" placeholder="Country" class="o_address_country"
+                                           options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+
+                                    <div class="o_row">
+                                        <field name="building_no" placeholder="Building No..." class="oe_inline"/>
+                                        <field name="district" placeholder="District..." class="oe_link oe_inline"/>
+                                        <field name="postal_code" placeholder="Postal Code..."
+                                               class="oe_link oe_inline"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="additional_no" placeholder="Additional No..." class="oe_inline"/>
+                                        <field name="other_id" placeholder="Other..." class="oe_link oe_inline"/>
+                                    </div>
+                                </div>
+
+
                             </group>
                             <group>
                                 <field name="apply_prefix"/>

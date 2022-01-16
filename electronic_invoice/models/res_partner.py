@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api,_
+
+from odoo.exceptions import UserError, ValidationError
 
 
 class ResPartner(models.Model):
@@ -11,3 +13,11 @@ class ResPartner(models.Model):
     postal_code = fields.Char(string="Postal Code", copy=False)
     additional_no = fields.Char(string="Additional No", copy=False)
     other_id = fields.Char(string="Other ID", copy=False)
+
+    def _formatting_address_fields(self):
+        res = super(ResPartner, self)._formatting_address_fields()
+        res += ['building_no', 'district', 'postal_code', 'additional_no', 'other_id']
+        return res
+    #
+
+

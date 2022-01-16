@@ -4,20 +4,17 @@
         <field name="model">res.company</field>
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[last()]" position="after">
-                <page string="electronic Invoice" name="electronic_invoice">
-                    <group>
-                        <group>
-                            <field name="building_no"/>
-                            <field name="district"/>
-                            <field name="postal_code"/>
-                        </group>
-                        <group>
-                            <field name="additional_no"/>
-                            <field name="other_id"/>
-                        </group>
-                    </group>
-                </page>
+            <xpath expr="//field[@name='country_id']" position="after">
+                <div class="o_row">
+                    <field name="building_no" placeholder="Building No..." class="oe_inline"/>
+                    <field name="district" placeholder="District..." class="oe_link oe_inline"/>
+                    <field name="postal_code" placeholder="Postal Code..." class="oe_link oe_inline"/>
+                </div>
+                <div class="o_row">
+                    <field name="additional_no" placeholder="Additional No..." class="oe_inline"/>
+                    <field name="other_id" placeholder="Other..." class="oe_link oe_inline"/>
+                </div>
+
             </xpath>
         </field>
     </record>
