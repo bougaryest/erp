@@ -49,5 +49,7 @@ class ResBranch(models.Model):
             self.other_id = self.company_id.other_id
             self.state_id = self.company_id.state_id.id
             self.country_id = self.company_id.country_id.id
+            self.vat = self.company_id.vat
+            self.company_registry = self.company_id.company_registry
 
 

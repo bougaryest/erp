@@ -55,6 +55,12 @@
                             <group>
                                 <field name="apply_prefix"/>
                                 <field name="prefix" attrs="{'invisible':[('apply_prefix','=',False)],'required':[('apply_prefix','=',True)]}"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                                <field name="website"/>
+                                <field name="vat"/>
+                                <field name="company_registry"/>
+
                             </group>
                         </group>
                     </sheet>
