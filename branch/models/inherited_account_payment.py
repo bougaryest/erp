@@ -1,7 +1,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning
 
 MAP_INVOICE_TYPE_PARTNER_TYPE = {
     'out_invoice': 'customer',
@@ -35,6 +35,6 @@ class AccountPayment(models.Model):
         allowed_branch_ids = self._context.get("allowed_branch_ids", [])
         if allowed_branch_ids and self.branch_id and self.branch_id.id not in allowed_branch_ids:
             self.branch_id = allowed_branch_ids[0]
-            raise ValidationError(
+            raise Warning(
                 _("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that."))
 

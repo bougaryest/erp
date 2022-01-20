@@ -5,7 +5,7 @@
         <Dropdown class="o_switch_branch_menu" position="'bottom-end'">
             <t t-set-slot="toggler">
                 <span t-attf-class="{{env.isSmall ? 'fa fa-building-o' : 'oe_topbar_name'}}">
-                    <t t-if="!env.isSmall and currentBranch"><t t-esc="currentBranch.name"/></t>
+                    <t t-if="!env.isSmall"><t t-esc="currentBranch.name"/></t>
                 </span>
             </t>
             <t t-foreach="Object.values(branchService.availableBranches)" t-as="branch">
