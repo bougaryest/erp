@@ -52,6 +52,9 @@
                                 <field name="website"/>
                                 <field name="vat"/>
                                 <field name="company_registry"/>
+                                <field name="picking_type_ids" options="{'no_create': True, 'no_edit': True}"
+                                       widget="many2many_tags"/>
+
                             </group>
                         </group>
                     </sheet>
