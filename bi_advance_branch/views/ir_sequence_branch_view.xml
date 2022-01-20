@@ -54,12 +54,16 @@
                             </group>
                             <group>
                                 <field name="apply_prefix"/>
-                                <field name="prefix" attrs="{'invisible':[('apply_prefix','=',False)],'required':[('apply_prefix','=',True)]}"/>
+                                <field name="prefix"
+                                       attrs="{'invisible':[('apply_prefix','=',False)],'required':[('apply_prefix','=',True)]}"/>
                                 <field name="phone"/>
                                 <field name="email"/>
                                 <field name="website"/>
                                 <field name="vat"/>
                                 <field name="company_registry"/>
+                                <field name="picking_type_ids" options="{'no_create': True, 'no_edit': True}"
+                                       widget="many2many_tags"/>
+
 
                             </group>
                         </group>
