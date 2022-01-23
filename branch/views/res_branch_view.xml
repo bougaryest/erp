@@ -54,6 +54,9 @@
                                 <field name="company_registry"/>
                                 <field name="picking_type_ids" options="{'no_create': True, 'no_edit': True}"
                                        widget="many2many_tags"/>
+                                <field name="warehouse_ids" options="{'no_create': True, 'no_edit': True}"
+                                       widget="many2many_tags"/>
+
 
                             </group>
                         </group>

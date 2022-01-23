@@ -29,7 +29,8 @@ class ResBranch(models.Model):
     postal_code = fields.Char(string="Postal Code", copy=False)
     additional_no = fields.Char(string="Additional No", copy=False)
     other_id = fields.Char(string="Other ID", copy=False)
-    picking_type_ids = fields.Many2many(comodel_name="stock.picking.type", string="Operation Type")
+    picking_type_ids = fields.Many2many("stock.picking.type", string="Operation Type")
+    warehouse_ids = fields.Many2many('stock.warehouse', string='Warehouse')
 
 
 

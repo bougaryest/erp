@@ -35,6 +35,12 @@ class SaleOrder(models.Model):
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
                                 check_company=True)
 
+    @api.onchange('branch_id')
+    def onchange_branch_id(self):
+        return {'domain': {'warehouse_id': [('id', 'in', self.branch_id.warehouse_ids.ids)]}}
+
+
+
     @api.onchange('company_id')
     def onchange_company_id(self):
         print("dd", self._context)
