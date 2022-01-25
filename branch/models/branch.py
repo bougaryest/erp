@@ -1,13 +1,14 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-
+from odoo.osv import expression
 
 class ResBranch(models.Model):
     _name = 'res.branch'
     _description = 'Branch'
 
     name = fields.Char(required=True)
+    code = fields.Char(required=True)
     company_id = fields.Many2one('res.company', required=True)
     telephone = fields.Char(string='Telephone No')
     address = fields.Text('Address')
@@ -16,6 +17,7 @@ class ResBranch(models.Model):
     email = fields.Char(string="Email")
     phone = fields.Char(string="Phone")
     website = fields.Char(string="Website")
+
 
     street = fields.Char('Street')
     street2 = fields.Char('Street2')
@@ -31,6 +33,16 @@ class ResBranch(models.Model):
     other_id = fields.Char(string="Other ID", copy=False)
     picking_type_ids = fields.Many2many("stock.picking.type", string="Operation Type")
     warehouse_ids = fields.Many2many('stock.warehouse', string='Warehouse')
+
+
+
+
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        branchs = super(ResBranch, self)._name_search(name, args=None, operator='ilike', limit=100, name_get_uid=None)
+        if not branchs:
+            branchs = self._search(expression.AND([[('code', operator, name)], args]), limit=limit, access_rights_uid=name_get_uid)
+        return branchs
 
 
 

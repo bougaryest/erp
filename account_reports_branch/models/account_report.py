@@ -29,12 +29,13 @@ class AccountReport(models.AbstractModel):
 
         for branch in self._get_filter_branches():
             if branch.company_id != previous_company:
-                options["branches"].append({"id": "divider", "name": branch.company_id.name})
+                options["branches"].append({"id": "divider", "name": branch.company_id.name, "code": branch.name})
                 previous_company = branch.company_id
 
             options["branches"].append({
                 "id": branch.id,
                 "name": branch.name,
+                "code": branch.code,
                 "selected": (branch.id in previous_branches)
             })
 
