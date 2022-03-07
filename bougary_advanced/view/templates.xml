@@ -1,0 +1,246 @@
+<odoo>
+    <template id="external_layout_bougary">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="text-center">
+                <img src="/bougary_advanced/static/invoice_header.jpg" style="width: 100%;max-height: 126px"/>
+            </div>
+
+
+        </div>
+
+        <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}"
+             t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});"
+             t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+             t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+        </div>
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-center" style="margin-top:100px">
+                <img src="/bougary_advanced/static/invoice_footer.jpg" style="width: 100%;max-height: 250px"/>
+            </div>
+
+            <div t-if="report_type == 'pdf'" class="text-muted">
+                Page:
+                <span class="page"/>
+                /
+                <span class="topage"/>
+            </div>
+        </div>
+    </template>
+    <template id="external_layout_striped_bougary" inherit_id="web.external_layout_striped">
+        <xpath expr="//div[1]" position="replace">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <div t-attf-class="header o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <img src="/bougary_advanced/static/invoice_header.jpg" style="width: 100%;max-height: 126px"/>
+                </div>
+
+            </div>
+        </xpath>
+        <xpath expr="//div[3]" position="replace">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="margin-top:100px">
+                    <img src="/bougary_advanced/static/footer.jpg" style="width: 100%;max-height: 250px"/>
+                </div>
+
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+
+
+    <template id="external_layout_bold_bougary" inherit_id="web.external_layout_bold">
+        <xpath expr="//div[1]" position="replace">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <div t-attf-class="header o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <img src="/bougary_advanced/static/invoice_header.jpg" style="width: 100%;max-height: 126px"/>
+                </div>
+
+            </div>
+        </xpath>
+        <xpath expr="//div[3]" position="replace">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="margin-top:100px">
+                    <img src="/bougary_advanced/static/footer.jpg" style="width: 100%;max-height: 250px"/>
+                </div>
+
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+            </div>
+        </xpath>
+
+
+    </template>
+    <template id="external_layout_standard_bougary" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[1]" position="replace">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <div t-attf-class="header o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <img src="/bougary_advanced/static/invoice_header.jpg" style="width: 100%;max-height: 126px"/>
+                </div>
+
+            </div>
+        </xpath>
+        <xpath expr="//div[3]" position="replace">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="margin-top:100px">
+                    <img src="/bougary_advanced/static/footer.jpg" style="width: 100%;max-height: 250px"/>
+                </div>
+
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+            </div>
+        </xpath>
+
+
+    </template>
+    <template id="external_layout_boxed_bougary" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[1]" position="replace">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <div t-attf-class="header o_company_#{company.id}_layout">
+                <div class="text-center">
+                    <img src="/bougary_advanced/static/invoice_header.jpg" style="width: 100%;max-height: 126px"/>
+                </div>
+
+            </div>
+        </xpath>
+        <xpath expr="//div[3]" position="replace">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                <div class="text-center" style="margin-top:100px">
+                    <img src="/bougary_advanced/static/footer.jpg" style="width: 100%;max-height: 250px"/>
+                </div>
+
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page:
+                    <span class="page"/>
+                    /
+                    <span class="topage"/>
+                </div>
+            </div>
+        </xpath>
+
+
+    </template>
+
+    <record id="paperformat_albougary" model="report.paperformat">
+        <field name="name">A4 Albougary</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">55</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+    <record id="paperformat_albougary_so" model="report.paperformat">
+        <field name="name">A4 Albougary so</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">40</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="bougary_advanced.action_report_invoice_bougary" model="ir.actions.report">
+        <field name="paperformat_id" ref="bougary_advanced.paperformat_albougary"/>
+    </record>
+    <record id="sale.action_report_saleorder" model="ir.actions.report">
+        <field name="paperformat_id" ref="bougary_advanced.paperformat_albougary_so"/>
+    </record>
+
+
+</odoo>

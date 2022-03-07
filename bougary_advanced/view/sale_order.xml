@@ -1,0 +1,12 @@
+<odoo>
+<!--    <record id="crevisoft_advanced_sale_order_form" model="ir.ui.view">-->
+<!--        <field name="name">sale.order</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='date_order']" position="attributes">-->
+<!--                <attribute name="readonly">0</attribute>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

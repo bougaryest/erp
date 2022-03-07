@@ -1,0 +1,44 @@
+<odoo>
+    <template id="report_saleorder_document_crevisoft" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t/t[2]" position="replace">
+            <div class="pull-right" style="width:40%" t-if="doc.partner_id">
+                <div class="pull-left">
+                    <div t-field="doc.partner_id"
+                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                </div>
+            </div>
+            <div class="pull-right" style="width:40%">
+                <div class="company_address " name="company_address">
+                    <ul class="list-unstyled">
+                        <li t-if="doc.company_id.website">
+                            <span t-field="doc.company_id.vat"/>
+                        </li>
+                        <li t-if="doc.company_id.company_registry">
+                            <span t-field="doc.company_id.company_registry"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border: 0px solid black;border:medium none;clear:both;display:block;font-size:0px;min-height:2px;line-height:0;margin: 0px 0px 0px 0px"/>
+
+        </xpath>
+
+        <xpath expr="//div[hasclass('clearfix')]" position="replace">
+            <t t-set="lang" t-value="doc.partner_id.lang if doc.partner_id else user.lang"/>
+            <div class="clearfix pull-right" style="width:50%">
+                <div id="total" class="row" t-attf-style="#{'margin-left: 0mm;' if 'ar' in lang else 'margin-right: 0mm;'}">
+                        <table class="table table-sm">
+                            <!-- Tax totals -->
+                            <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
+                            <t t-call="account.document_tax_totals"/>
+                        </table>
+
+                </div>
+            </div>
+            <hr style="border: 0px solid black;border:medium none;clear:both;display:block;font-size:0px;min-height:2px;line-height:0;margin: 0px 0px 0px 0px"/>
+
+
+        </xpath>
+    </template>
+
+</odoo>

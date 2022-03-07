@@ -1,0 +1,78 @@
+<odoo>
+
+    <record id="view_stock_picking_delivery_template_search" model="ir.ui.view">
+        <field name="name">view.stock.picking.delivery.template.search</field>
+        <field name="model">stock.picking.delivery.template</field>
+        <field name="arch" type="xml">
+            <search string="Delivery Templates">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="lines" string="Products Lines"
+                       filter_domain="[('lines.product_id', 'ilike', self)]"/>
+                <group expand="1" string="Group By">
+                    <filter name="product_id" context="{'group_by':'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_delivery_template_tree" model="ir.ui.view">
+        <field name="name">view.stock.picking.delivery.template.tree</field>
+        <field name="model">stock.picking.delivery.template</field>
+        <field name="arch" type="xml">
+            <tree string="Delivery Templates">
+                <field name="name"/>
+                <field name="product_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_delivery_template_form" model="ir.ui.view">
+        <field name="name">view.stock.picking.delivery.template.form</field>
+        <field name="model">stock.picking.delivery.template</field>
+        <field name="arch" type="xml">
+            <form string="Delivery Templates">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="picking_type_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Products" name="lines">
+                            <field name="lines">
+                                <tree editable="bottom">
+                                    <field name="product_id" options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="quantity" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_picking_delivery_templates" model="ir.actions.act_window">
+        <field name="name">Delivery Templates</field>
+        <field name="res_model">stock.picking.delivery.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_stock_picking_delivery_templates" name="Delivery Templates"
+              parent="stock.menu_product_in_config_stock" action="action_stock_picking_delivery_templates"
+              sequence="60"/>
+</odoo>
