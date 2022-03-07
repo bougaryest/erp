@@ -1,8 +1,8 @@
 <odoo>
     <template id="report_tax_invoice_document_bougary">
         <t t-call="bougary_advanced.external_layout_bougary">
-            <t t-set="vendor"
-               t-value="o.partner_id if o.move_type in ('in_invoice', 'in_refund') else o.company_id"/>
+            <t t-set="lang" t-value="o.partner_id.lang if o.partner_id else user.lang"/>
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
 
             <div class="page">
                 <table class="table table table-sm">
@@ -11,7 +11,7 @@
                             <strong>Date:</strong>
                         </td>
                         <td style="border:medium none;">
-<!--                            <span t-field="o.invoice_date"/>-->
+                            <!--                            <span t-field="o.invoice_date"/>-->
                         </td>
                         <td style="width:60%;border:medium none;">
                             <strong>Page:</strong>

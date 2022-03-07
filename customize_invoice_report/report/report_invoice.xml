@@ -119,7 +119,7 @@
                                         <td class="text-center">
                                             <span t-esc="', '.join(map(lambda x: x.name, line.tax_ids))"/>
                                         </td>
-                                        <td class="text-center"
+                                        <td class="text-center" t-if="display_discount"
                                             groups="customize_invoice_report.group_print_discount_invoice">
                                             <span t-field="line.amount_discount"
                                                   t-field-options='{"widget": "monetary", "display_currency": "o.currency_id"}'/>
