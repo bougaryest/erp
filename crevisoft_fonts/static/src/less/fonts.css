@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Noto Sans Arabic';
+    src: url('../font/Noto_Sans_Arabic/static/NotoSansArabic-Regular.eot')  format("truetype");
+    src: url('../font/Noto_Sans_Arabic/static/NotoSansArabic-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../font/Noto_Sans_Arabic/static/NotoSansArabic-Regular.woff') format('woff'),
+    url('../font/Noto_Sans_Arabic/static/NotoKufiArabic-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Noto Naskh Arabic";
+  src:url("../font/Noto_Naskh_Arabic/static/NotoNaskhArabic-Bold.ttf") format("truetype"),
+    url("../font/Noto_Naskh_Arabic/static/NotoNaskhArabic-Medium.ttf") format("truetype"),
+    url("../font/Noto_Naskh_Arabic/static/NotoNaskhArabic-Regular.ttf") format("truetype"),
+    url("../font/Noto_Naskh_Arabic/static/NotoNaskhArabic-SemiBold.ttf") format("truetype"),
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src:url("../font/Tajawal/Tajawal-Black.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-Bold.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-ExtraBold.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-ExtraLight.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-Light.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-Medium.ttf") format("truetype"),
+    url("../font/Tajawal/Tajawal-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Readex Pro';
+    src: url('../font/Readex_Pro/static/ReadexPro-Bold.ttf')  format("truetype");
+    src: url('../font/Readex_Pro/static/ReadexPro-ExtraLight.ttf')  format("truetype"),
+    url('../font/Readex_Pro/static/ReadexPro-Light.ttf')  format("truetype"),
+    url('../font/Readex_Pro/static/ReadexPro-Medium.ttf') format('truetype'),
+    url('../font/Readex_Pro/static/ReadexPro-Regular.ttf') format('truetype'),
+    url('../font/Readex_Pro/static/ReadexPro-SemiBold.ttf') format('truetype');
+}
