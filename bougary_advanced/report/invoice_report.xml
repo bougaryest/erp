@@ -39,7 +39,7 @@
                     <table class="table table table-sm">
                         <tr>
                             <td style="width:60%;border:medium none;">
-                                <strong>Massage:</strong>
+                                <strong>Messers:</strong>
                             </td>
                             <td style="text-align:center;border:medium none;">
 <!--                                <span t-field="o.narration"/>-->

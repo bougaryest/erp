@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../enterprise/.idea/enterprise.iml" filepath="$PROJECT_DIR$/../../enterprise/.idea/enterprise.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/erp.iml" filepath="$PROJECT_DIR$/.idea/erp.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../odoo-15/.idea/odoo-15.iml" filepath="$PROJECT_DIR$/../../../odoo-15/.idea/odoo-15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../enterprice_custom/crevi_15/odoo15-hr-enterprise/.idea/odoo15-hr-enterprise.iml" filepath="$PROJECT_DIR$/../../enterprice_custom/crevi_15/odoo15-hr-enterprise/.idea/odoo15-hr-enterprise.iml" />
     </modules>
   </component>
 </project>

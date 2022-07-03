@@ -19,7 +19,7 @@
 
     'data': [
         'report/invoice_report.xml',
-        # 'view/sale_order.xml',
+        'view/sale_order.xml',
         # 'view/res_company_view.xml',
         'view/templates.xml',
     ],
