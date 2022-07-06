@@ -19,8 +19,9 @@
 
     'data': [
         'report/invoice_report.xml',
+        'report/payment_report.xml',
         'view/sale_order.xml',
-        # 'view/res_company_view.xml',
+        'view/account_move_views.xml',
         'view/templates.xml',
     ],
 

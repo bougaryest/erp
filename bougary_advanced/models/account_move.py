@@ -8,6 +8,8 @@ class AccountMove(models.Model):
 
     total_discount = fields.Float(string="Total Discount", compute="_compute_discount")
     confirm_date = fields.Datetime(string="Confirm Date", copy=False)
+    po_no = fields.Char(copy=False)
+    pay_type = fields.Selection(selection=[('cash', 'Cash Sales'), ('deferred', 'Deferred Sales'), ],required=True,)
 
     def amount_in_words(self, lang, amount):
         return self.company_id.currency_id.with_context(lang=lang).amount_to_text(amount)

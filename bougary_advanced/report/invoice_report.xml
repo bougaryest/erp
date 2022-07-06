@@ -1,38 +1,42 @@
 <odoo>
     <template id="report_tax_invoice_document_bougary">
         <t t-call="bougary_advanced.external_layout_bougary">
-            <t t-set="lang" t-value="o.partner_id.lang if o.partner_id else user.lang"/>
-            <t t-set="o" t-value="o.with_context(lang=lang)"/>
-
+           <t t-set="o" t-value="o.with_context(lang=lang)"/>
             <div class="page">
                 <table class="table table table-sm">
                     <tr>
-                        <td style="width:60%;border:medium none;">
+                        <td style="width:20%;border:medium none;">
                             <strong>Date:</strong>
                         </td>
-                        <td style="border:medium none;">
-                            <!--                            <span t-field="o.invoice_date"/>-->
+                        <td style="width:30%;border:medium none;">
+                            <span t-field="o.invoice_date"/>
                         </td>
-                        <td style="width:60%;border:medium none;">
-                            <strong>Page:</strong>
+                        <td style="width:20%;border:medium none;">
+                            <!--                            <strong>Page:</strong>-->
                         </td>
-                        <td style="border:medium none;">
-<!--                            <span class="page"/>-->
+                        <td style="width:30%;border:medium none;">
+                            <div class="text-muted">
+
+                                <!--                                <span class="page"/>-->
+                                <!--                                /-->
+                                <!--                                <span class="topage"/>-->
+                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width:60%;border:medium none;">
-                            <strong>Store:</strong>
-                        </td>
-                        <td style="border:medium none;">
-<!--                            <span t-field="o.invoice_date"/>-->
-                        </td>
-                        <td style="border:medium none;">
+                        <td style="width:20%;border:medium none;">
                             <strong>Salesman No:</strong>
                         </td>
-                        <td style="border:medium none;">
-<!--                            <span t-field="o.invoice_user_id.name"/>-->
+                        <td style="width:30%;border:medium none;">
+                            <span t-field="o.invoice_user_id.name"/>
                         </td>
+                        <td style="width:20%;border:medium none;">
+                            <strong t-if="o.invoice_line_ids.mapped('sale_line_ids.warehouse_id')">Store:</strong>
+                        </td>
+                        <td style="width:30%;border:medium none;">
+                            <span t-esc="o.invoice_line_ids.mapped('sale_line_ids.warehouse_id').name"/>
+                        </td>
+
                     </tr>
                 </table>
                 <div style="width:100%;min-height:20%;background:#d4d9db;color:black;border-radius: 10px; border: 1px solid #d4d9db;border-collapse: separate !important;">
@@ -42,13 +46,13 @@
                                 <strong>Messers:</strong>
                             </td>
                             <td style="text-align:center;border:medium none;">
-<!--                                <span t-field="o.narration"/>-->
+                                <span t-field="o.narration"/>
                             </td>
                             <td style="width:60%;border:medium none;">
                                 <strong>P.O No.:</strong>
                             </td>
                             <td style="text-align:center;border:medium none;">
-<!--                                <span class="page"/>-->
+                                    <span t-field="o.po_no"/>
                             </td>
                         </tr>
 
@@ -158,8 +162,9 @@
                         <td style="width:60%;border-radius: 5px; border: 0px solid black;border-collapse: separate !important;">
                         </td>
                         <td style="border-radius: 5px; border: 1px solid black;border-collapse: separate !important;">
-                            <strong>Gross Total</strong>
-                            <span style="float:right" t-field="o.amount_untaxed"/>
+                            <strong>Gross Total:</strong>
+                            <span t-attf-style="#{'float: left' if 'ar' in lang else 'float: right'}"
+                                  t-field="o.amount_untaxed"/>
                         </td>
 
                     </tr>
@@ -167,8 +172,10 @@
                         <td style="width:60%;border-radius: 5px; border: 0px solid black;border-collapse: separate !important;">
                         </td>
                         <td style="border-radius: 5px; border: 1px solid black;border-collapse: separate !important;">
-                            <strong>Discount</strong>
-                            <span style="float:right" t-field="o.total_discount"/>
+                            <strong>Discount:</strong>
+                            <span t-attf-style="#{'float: left' if 'ar' in lang else 'float: right'}"
+                                  t-field="o.total_discount"
+                                  t-options='{"widget": "monetary", "display_currency": currency}'/>
                         </td>
 
                     </tr>
@@ -176,8 +183,9 @@
                         <td style="width:60%;border-radius: 5px; border: 0px solid black;border-collapse: separate !important;">
                         </td>
                         <td style="border-radius: 5px; border: 1px solid black;border-collapse: separate !important;">
-                            <strong>Vat</strong>
-                            <span style="float:right" t-field="o.amount_tax"/>
+                            <strong>Vat:</strong>
+                            <span t-attf-style="#{'float: left' if 'ar' in lang else 'float: right'}"
+                                  t-field="o.amount_tax"/>
                         </td>
 
                     </tr>
@@ -186,7 +194,8 @@
                         </td>
                         <td style="border-radius: 5px; border: 1px solid black;border-collapse: separate !important;">
                             <strong>Net Total</strong>
-                            <span style="float:right" t-field="o.amount_total"/>
+                            <span t-attf-style="#{'float: left' if 'ar' in lang else 'float: right'}"
+                                  t-field="o.amount_total"/>
                         </td>
 
                     </tr>
@@ -205,7 +214,10 @@
     <template id="report_invoice_bougary">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="bougary_advanced.report_tax_invoice_document_bougary"/>
+                <t t-set="lang"
+                   t-value="o.partner_id.sudo().lang if o.sudo().partner_id else o.invoice_user_id.sudo().lang"/>
+                <t
+                   t-call="bougary_advanced.report_tax_invoice_document_bougary" t-lang="lang"/>
             </t>
         </t>
     </template>

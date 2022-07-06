@@ -1,0 +1,230 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bougary_advanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220622\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-06 09:20+0000\n"
+"PO-Revision-Date: 2022-07-06 09:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.freight_payments
+msgid "<span>Accountant</span>"
+msgstr "<span>المحاسب</span>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.freight_payments
+msgid "<span>Recipient</span>"
+msgstr "<span>المستلم</span>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">المجموع الفرعي</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Date:</strong>"
+msgstr "<strong>التاريخ:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Discount:</strong>"
+msgstr "<strong>الخصم:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Gross Total:</strong>"
+msgstr "<strong>المجموع الكلي:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Messers:</strong>"
+msgstr " <strong>السادة:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Net Total</strong>"
+msgstr "<strong>الصافي:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>P.O No.:</strong>"
+msgstr "<strong>رقم أمر الشراء:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Salesman No:</strong>"
+msgstr "<strong> مسؤول المبيعات:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "<strong>Vat:</strong>"
+msgstr "<strong>الضريبة:</strong>"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.bougary_advanced_view_account_move_filter_inherit_branch
+msgid "Cash Deferred"
+msgstr "مبيعات مؤجلة"
+
+#. module: bougary_advanced
+#: model:ir.model.fields.selection,name:bougary_advanced.selection__account_move__pay_type__cash
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.bougary_advanced_view_account_move_filter_inherit_branch
+msgid "Cash Sales"
+msgstr "مبيعات نقدية"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_bank_statement_line__confirm_date
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_move__confirm_date
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_payment__confirm_date
+msgid "Confirm Date"
+msgstr "تاريخ التأكيد"
+
+#. module: bougary_advanced
+#: model:ir.model.fields.selection,name:bougary_advanced.selection__account_move__pay_type__deferred
+msgid "Deferred Sales"
+msgstr "مبيعات مؤجلة"
+
+#. module: bougary_advanced
+#: model:ir.model,name:bougary_advanced.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: bougary_advanced
+#: model:ir.actions.report,name:bougary_advanced.action_report_invoice_bougary
+msgid "Invoice"
+msgstr "فاتورة"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Item Name"
+msgstr "اسم العنصر"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Item No."
+msgstr "رقم العنصر"
+
+#. module: bougary_advanced
+#: model:ir.model,name:bougary_advanced.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,help:bougary_advanced.field_hr_contract__l10n_sa_number_of_days
+msgid ""
+"Number of days of basic salary to be added to the end of service provision "
+"per year"
+msgstr ""
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.external_layout_bold_bougary
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.external_layout_boxed_bougary
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.external_layout_standard_bougary
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.external_layout_striped_bougary
+msgid ""
+"Page:\n"
+"                    <span class=\"page\"/>\n"
+"                    /\n"
+"                    <span class=\"topage\"/>"
+msgstr ""
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.external_layout_bougary
+msgid ""
+"Page:\n"
+"                <span class=\"page\"/>\n"
+"                /\n"
+"                <span class=\"topage\"/>"
+msgstr ""
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_bank_statement_line__pay_type
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_move__pay_type
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_payment__pay_type
+msgid "Pay Type"
+msgstr "النوع"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.freight_payments
+msgid "Payment Receipt :"
+msgstr "سند قبض :"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.freight_payments
+msgid "Payment Receipt:"
+msgstr "سند صرف :"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_bank_statement_line__po_no
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_move__po_no
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_payment__po_no
+msgid "Po No"
+msgstr "رقم أمر الشراء"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Price"
+msgstr "السعر"
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Qty."
+msgstr "الكمية"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_hr_contract__l10n_sa_company_country_code
+msgid "Saudi Company Country Code"
+msgstr ""
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_hr_contract__l10n_sa_housing_allowance
+msgid "Saudi Housing Allowance"
+msgstr ""
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_hr_contract__l10n_sa_number_of_days
+msgid "Saudi Number of Days"
+msgstr ""
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_hr_contract__l10n_sa_other_allowances
+msgid "Saudi Other Allowances"
+msgstr ""
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_hr_contract__l10n_sa_transportation_allowance
+msgid "Saudi Transportation Allowance"
+msgstr ""
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Store:"
+msgstr "المخزن:"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,help:bougary_advanced.field_hr_contract__l10n_sa_company_country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: bougary_advanced
+#: model_terms:ir.ui.view,arch_db:bougary_advanced.report_tax_invoice_document_bougary
+msgid "Total"
+msgstr "المجموع"
+
+#. module: bougary_advanced
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_bank_statement_line__total_discount
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_move__total_discount
+#: model:ir.model.fields,field_description:bougary_advanced.field_account_payment__total_discount
+msgid "Total Discount"
+msgstr "مجموع الخصومات"
