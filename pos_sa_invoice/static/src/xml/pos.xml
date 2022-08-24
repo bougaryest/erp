@@ -74,8 +74,7 @@
 
                  <td>
                             <span t-esc="receipt.name"/>
-                            <span t-esc="env.pos.format_currency(receipt.total_with_tax) "/>
-                            <span t-esc="receipt.total_with_tax"/>
+
                         </td>
                  <td>
                             <span>رقم الفاتورة </span>
