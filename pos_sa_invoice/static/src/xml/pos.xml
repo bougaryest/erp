@@ -56,9 +56,10 @@
 
 
      <xpath expr="//div[hasclass('orderlines')]" position="before">
+              <t t-set="total_with_tax" t-value="receipt.total_with_tax"/>
              <div style='text-align:center;border-bottom: 2px solid black;margin-bottom:3px;font-size:12px'>
-                <div><strong> فاتورة ضريبية مبسطة </strong></div>
-                 <div> <strong> SIMPLIFIED TAX INVOICE </strong></div>
+                <div> <strong> فاتورة ضريبية مبسطة </strong> <strong t-if="total_with_tax &lt; 0.0"> - مرتجع </strong></div>
+                 <div><strong> SIMPLIFIED TAX INVOICE </strong><strong t-if="total_with_tax &lt; 0.0"> - Refund  </strong> </div>
             </div>
          <table class='receipt-orderlines' style="font-size:12px">
                     <colgroup>
@@ -67,12 +68,13 @@
                     </colgroup>
              <tr style="border-bottom: 1px solid #e6e6e6">
 
-                                         <td>
+                 <td>
                             <span>Invoice No </span>
                         </td>
 
                  <td>
                             <span t-esc="receipt.name"/>
+
                         </td>
                  <td>
                             <span>رقم الفاتورة </span>
