@@ -25,7 +25,7 @@ It consist of:
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['hr_payroll_account', 'hr_holidays', 'hr_timesheet'],
+    'depends': ['hr_payroll_account', 'hr_holidays'],
 
     # always loaded
     'data': [

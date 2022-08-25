@@ -14,16 +14,16 @@
             <field name="domain_force">[(1, '=', 1)]</field>
         </record>
 
-        <record id="group_show_timesheets_employees_for_manager" model="res.groups">
-            <field name="name">Show Timesheets of Employees for Manager</field>
-            <field name="category_id" ref="base.module_category_hidden"/>
-        </record>
-        <record id="access_show_timesheets_employees_for_manager_rule" model="ir.rule">
-            <field name="name">Show Timesheets of Employees for Manager Rule</field>
-            <field name="model_id" ref="hr_timesheet.model_account_analytic_line"/>
-            <field name="groups" eval="[(4, ref('hr_advanced.group_show_timesheets_employees_for_manager'))]"/>
-            <field name="domain_force">[('user_id.employee_parent_id.user_id', '=',user.id)]</field>
-        </record>
+<!--        <record id="group_show_timesheets_employees_for_manager" model="res.groups">-->
+<!--            <field name="name">Show Timesheets of Employees for Manager</field>-->
+<!--            <field name="category_id" ref="base.module_category_hidden"/>-->
+<!--        </record>-->
+<!--        <record id="access_show_timesheets_employees_for_manager_rule" model="ir.rule">-->
+<!--            <field name="name">Show Timesheets of Employees for Manager Rule</field>-->
+<!--            <field name="model_id" ref="hr_timesheet.model_account_analytic_line"/>-->
+<!--            <field name="groups" eval="[(4, ref('hr_advanced.group_show_timesheets_employees_for_manager'))]"/>-->
+<!--            <field name="domain_force">[('user_id.employee_parent_id.user_id', '=',user.id)]</field>-->
+<!--        </record>-->
 
     </data>
 </odoo>
