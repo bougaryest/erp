@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_hr_advanced_settings_form" model="ir.ui.view">
+        <field name="name">view.hr.custody.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr_payroll.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='hr_payroll_localization']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="gosisetting">
+                    <div class="o_setting_right_pane">
+                        <label for="gosi_id"/>
+                        <div class="row">
+                            <div class="text-muted col-md-12">
+                                SET DEFAULT GOSI
+                            </div>
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="gosi_id" options="{'no_create': True, 'no_open': True}"
+                                       class="col-lg-5 pl-0"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
