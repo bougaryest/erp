@@ -1,7 +1,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning
 
 
 class SaleOrder(models.Model):
@@ -35,12 +35,6 @@ class SaleOrder(models.Model):
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
                                 check_company=True)
 
-    @api.onchange('branch_id')
-    def onchange_branch_id(self):
-        return {'domain': {'warehouse_id': [('id', 'in', self.branch_id.warehouse_ids.ids)]}}
-
-
-
     @api.onchange('company_id')
     def onchange_company_id(self):
         print("dd", self._context)
@@ -60,5 +54,5 @@ class SaleOrder(models.Model):
         allowed_branch_ids = self._context.get("allowed_branch_ids", [])
         if allowed_branch_ids and self.branch_id and self.branch_id.id not in allowed_branch_ids:
             self.branch_id = allowed_branch_ids[0]
-            raise ValidationError(
+            raise Warning(
                 _("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that."))

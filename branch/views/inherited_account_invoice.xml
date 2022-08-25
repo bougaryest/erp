@@ -7,21 +7,11 @@
             <field name="model">account.move</field>
             <field name="inherit_id" ref="account.view_move_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//div[@name='journal_div']" position="after">
-                    <field name="branch_id"/>
-                </xpath>
+               <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='other_info']/group[1]/group[@name='accounting_info_group']/field[@name='company_id']"
+                      position="after">
+                   <field name="branch_id"/>
+               </xpath>
                 <xpath expr="//field[@name='line_ids']//tree//field[@name='partner_id']" position="after">
-                    <field name="branch_id"/>
-                </xpath>
-            </field>
-        </record>
-
-        <record id="view_move_tree_inherit_branch" model="ir.ui.view">
-            <field name="name">view.move.tree.inherit.branch</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_move_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='journal_id']" position="after">
                     <field name="branch_id"/>
                 </xpath>
             </field>
@@ -39,20 +29,6 @@
             </field>
         </record>
 
-        <!-- Inherit Form View to Modify it -->
-        <record id="view_move_line_form_inherit_branch" model="ir.ui.view">
-            <field name="name">account.move.line</field>
-            <field name="model">account.move.line</field>
-            <field name="inherit_id" ref="account.view_move_line_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="branch_id" readonly="1"/>
-                </xpath>
-
-            </field>
-        </record>
-
-
         <record id="view_move_line_tree_inherit_branch" model="ir.ui.view">
             <field name="name">view.move.line.tree.inherit.branch</field>
             <field name="model">account.move.line</field>
@@ -69,37 +45,6 @@
             <field name="model">account.move.line</field>
             <field name="inherit_id" ref="account.view_account_move_line_filter"/>
             <field name="arch" type="xml">
-                <xpath expr="//group" position="inside">
-                    <filter string="Branch" name="branch" domain="[]" context="{'group_by':'branch_id'}"/>
-                </xpath>
-            </field>
-        </record>
-
-
-        <record id="view_move_line_order_filter_inherit_branch" model="ir.ui.view">
-            <field name="name">move.line.filter.inherit.branch</field>
-            <field name="model">account.move.line</field>
-            <field name="inherit_id" ref="account.view_account_move_line_filter"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='account_id']" position="after">
-                    <field name="branch_id"/>
-                </xpath>
-                <xpath expr="//group" position="inside">
-                    <filter string="Branch" name="branch" domain="[]" context="{'group_by':'branch_id'}"/>
-                </xpath>
-            </field>
-        </record>
-
-
-        <record id="view_account_move_filter_inherit_branch" model="ir.ui.view">
-            <field name="name">move.filter.inherit.branch</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_account_move_filter"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='date']" position="after">
-                    <field name="branch_id"/>
-                </xpath>
-
                 <xpath expr="//group" position="inside">
                     <filter string="Branch" name="branch" domain="[]" context="{'group_by':'branch_id'}"/>
                 </xpath>

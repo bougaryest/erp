@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
 
         <record model="ir.module.category" id="module_branch_management">
             <field name="name">Branch</field>
@@ -18,15 +18,6 @@
             <field name="category_id" ref="module_branch_management"/>
             <field name="implied_ids" eval="[(4, ref('group_branch_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
-        </record>
-
-
-        <record id="base.group_system" model="res.groups">
-            <field name="implied_ids" eval="[(4, ref('branch.group_branch_user_manager'))]"/>
-        </record>
-
-        <record id="base.default_user" model="res.users">
-            <field name="groups_id" eval="[(4,ref('branch.group_branch_user'))]"/>
         </record>
 
 

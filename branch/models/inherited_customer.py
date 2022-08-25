@@ -21,7 +21,8 @@ class ResPartnerIn(models.Model):
         })
         return res
 
-    branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]")
+    branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
+                                check_company=True)
 
     @api.onchange('company_id')
     def onchange_company_id(self):

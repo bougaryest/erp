@@ -1,7 +1,7 @@
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning
 
 
 class purchase_order(models.Model):
@@ -80,10 +80,6 @@ class PurchaseOrder(models.Model):
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
                                 check_company=True)
 
-    @api.onchange('branch_id')
-    def onchange_branch_id(self):
-        return {'domain': {'picking_type_id': [('id', 'in', self.branch_id.picking_type_ids.ids)]}}
-
     @api.onchange('company_id')
     def onchange_company_id(self):
         if self.company_id and self.branch_id.company_id.id != self.company_id.id:
@@ -142,46 +138,5 @@ class PurchaseOrder(models.Model):
         allowed_branch_ids = self._context.get("allowed_branch_ids", [])
         if allowed_branch_ids and self.branch_id and self.branch_id.id not in allowed_branch_ids:
             self.branch_id = allowed_branch_ids[0]
-            raise ValidationError(_("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that."))
-
-
-class PurchaseRequisition(models.Model):
-    _inherit = 'purchase.requisition'
-
-
-    @api.model
-    def default_get(self,fields):
-        res = super(PurchaseRequisition, self).default_get(fields)
-        branch_id = picking_type_id = False
-
-        allowed_branch_ids = self._context.get("allowed_branch_ids", [])
-        if allowed_branch_ids:
-            branch_id = allowed_branch_ids[0]
-        elif self.env.user.branch_id:
-            branch_id = self.env.user.branch_id.id
-
-        if branch_id:
-            branched_warehouse = self.env['stock.warehouse'].search([('branch_id', '=', branch_id)])
-            if branched_warehouse:
-                picking_type_id = branched_warehouse[0].in_type_id.id
-        else:
-            picking = self._default_picking_type()
-            picking_type_id = picking.id
-
-        res.update({
-            'branch_id': branch_id,
-            'picking_type_id': picking_type_id
-        })
-
-        return res
-
-    branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
-                                check_company=True)
-
-    @api.onchange('company_id')
-    def onchange_company_id(self):
-        if self.company_id and self.branch_id.company_id.id != self.company_id.id:
-            self.branch_id = False
-
-
-
+            raise Warning(
+                _("Please select active branch only. Other may create the Multi branch issue. \n\ne.g: If you wish to add other branch then Switch branch from the header and set that."))
