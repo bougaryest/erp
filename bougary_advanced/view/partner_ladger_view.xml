@@ -1,0 +1,7 @@
+<odoo>
+    <record id="account_reports.action_account_report_partner_ledger" model="ir.actions.client">
+        <field name="name">Partner Ledger</field>
+    </record>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="account_reports.menu_action_account_report_partner_ledger"  name="Partner Ledger" action="account_reports.action_account_report_partner_ledger" parent="account_reports.account_reports_partners_reports_menu" groups="account.group_account_readonly"/>
+</odoo>

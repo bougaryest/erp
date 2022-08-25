@@ -1,0 +1,39 @@
+<odoo>
+
+
+    <template id="freight_payments" inherit_id="account.report_payment_receipt_document">
+        <xpath expr="//h3" position="replace">
+            <h3>
+                <h3 t-if="o.payment_type == 'outbound'">
+                    <strong>Payment Receipt:
+                        <span t-field="o.name"/>
+                    </strong>
+                </h3>
+                <h3 t-if="o.payment_type == 'inbound'">
+                    <strong>Payment Receipt :
+                        <span t-field="o.name"/>
+                    </strong>
+                </h3>
+            </h3>
+        </xpath>
+        <xpath expr="//table" position="after">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <center>
+                <div class="col-5" style="display: inline-block">
+                    <span>Recipient</span>
+                </div>
+                <div class="col-5" style="display: inline-block">
+                    <span>Accountant</span>
+                </div>
+            </center>
+
+        </xpath>
+
+    </template>
+
+
+</odoo>

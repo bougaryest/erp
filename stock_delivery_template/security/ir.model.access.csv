@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_picking_delivery_template,stock.picking.delivery.template,model_stock_picking_delivery_template,,1,1,1,1
+access_stock_picking_delivery_template_line,stock.picking.delivery.template.line,model_stock_picking_delivery_template_line,,1,1,1,1
+
+

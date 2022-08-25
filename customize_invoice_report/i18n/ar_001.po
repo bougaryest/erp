@@ -1,0 +1,175 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* customize_invoice_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20211031\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-07 08:33+0000\n"
+"PO-Revision-Date: 2022-03-07 08:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: customize_invoice_report
+#: model:res.groups,name:customize_invoice_report.group_print_discount_invoice
+msgid " Print Discount of Invoice Lines in Invoice Report"
+msgstr "طباعة الخصم من سطور الفاتورة في تقرير الفاتورة"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span groups=\"\">Total</span>"
+msgstr "<span groups=\"\">المجموع</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>الوصف</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Disc.%</span>"
+msgstr "<span>الخصم</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Quantity</span>"
+msgstr "<span>الكمية</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Tax Amount</span>"
+msgstr "<span>مبلغ الضريبة</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Tax Rate</span>"
+msgstr "<span>نسبة الضريبة</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Taxable Amount</span>"
+msgstr "<span>المبلغ الخاضع للضريبة</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>سعر الوحدة</span>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong class=\"mr16\">Subtotal</strong>"
+msgstr "<strong class=\"mr16\">المجموع الجزئي</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid ""
+"<strong class=\"text-center\">Scan me with your banking app.</strong>\n"
+"                            <br/>\n"
+"                            <br/>"
+msgstr ""
+"<strong class=\"text-center\">أو امسحني بتطبيقك البنكي.</strong>\n"
+"                            <br/>\n"
+"                            <br/>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Buyer</strong>"
+msgstr "<strong>العميل</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Customer Code:</strong>"
+msgstr "<strong>كود العميل:</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Date of Supply:</strong>"
+msgstr "<strong>تاريخ التوريد</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Due Date:</strong>"
+msgstr "<strong>تاريخ الاستحقاق</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Incoterm:</strong>"
+msgstr "<strong>شرط تجاري</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>تاريخ الفاتورة</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Reference:</strong>"
+msgstr "<strong>الرقم المرجعي</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Seller</strong>"
+msgstr "<strong>المورد</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "<strong>Source:</strong>"
+msgstr "<strong>المصدر</strong>"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.external_layout_bold_spark
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.external_layout_boxed_spark
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.external_layout_standard_spark
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.external_layout_striped_spark
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Please use the following communication for your payment :"
+msgstr "برجاء استخدام هذا المرجع عند السداد:"
+
+#. module: customize_invoice_report
+#: model:res.groups,name:customize_invoice_report.group_print_address_vendor_invoice
+msgid "Print Address Vendor in Invoice Report"
+msgstr "طباعة عنوان البائع في تقرير الفاتورة"
+
+#. module: customize_invoice_report
+#: model:res.groups,name:customize_invoice_report.group_print_taxable_amount_invoice
+msgid "Print Taxable Amount of Invoice Lines in Invoice Report"
+msgstr "اطبع المبلغ الخاضع للضريبة لخطوط الفاتورة في تقرير الفاتورة"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Tax Invoice"
+msgstr "فاتورة ضريبية"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Total Amount Due"
+msgstr "إجمالي المبلغ المستحق"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Total Taxable Amount-Excluding VAT"
+msgstr "الاجمالي الختضع للضريبة غير شامل ض ق م"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Total VAT"
+msgstr "مجموع الضريبة"
+
+#. module: customize_invoice_report
+#: model_terms:ir.ui.view,arch_db:customize_invoice_report.report_customize_invoice_document
+msgid "Total-Excluding VAT"
+msgstr "الاجمالي غير شامل ض ق م"

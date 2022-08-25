@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_default_gosi_tree" model="ir.ui.view">
+        <field name="name">default.gosi</field>
+        <field name="model">default.gosi</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name"/>
+                <field name="gosi_percent"/>
+                <field name="occupational_hazards"/>
+                <field name="pension_insurance"/>
+                <field name="company_pension_insurance"/>
+                <field name="saned"/>
+                <field name="company_saned"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_default_gosi_form" model="ir.ui.view">
+        <field name="name">default.gosi</field>
+        <field name="model">default.gosi</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="gosi_percent"/>
+                        </group>
+                        <group>
+                            <field name="occupational_hazards"/>
+                            <field name="pension_insurance"/>
+                            <field name="company_pension_insurance"/>
+                            <field name="saned"/>
+                            <field name="company_saned"/>
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_default_gosi" model="ir.actions.act_window">
+        <field name="name">GOSI</field>
+        <field name="res_model">default.gosi</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create new GOSI
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_default_gosi" name="GOSI"
+              parent="hr_payroll.menu_hr_salary_configuration" action="action_default_gosi"
+              sequence="51"/>
+
+
+</odoo>

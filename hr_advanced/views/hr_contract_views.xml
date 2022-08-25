@@ -1,0 +1,149 @@
+<odoo>
+
+    <record id="view_hr_contract_inherit_form" model="ir.ui.view">
+        <field name="name">view.hr.contract.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="ref"/>
+            </xpath>
+            <xpath expr="//group[@name='salary_info']" position="after">
+                <group>
+                    <group string="allowances" name="allowances">
+                        <label for="overtime_allowance"/>
+                        <div class="o_row" name="overtime_allowance">
+                            <field name="overtime_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+<!--                        <label for="transportation_allowance"/>-->
+<!--                        <div class="o_row" name="transportation_allowance">-->
+<!--                            <field name="transportation_allowance" nolabel="1"/>-->
+<!--                            <span>/ month</span>-->
+<!--                        </div>-->
+                        <label for="food_allowance"/>
+                        <div class="o_row" name="food_allowance">
+                            <field name="food_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+<!--                        <label for="housing_allowance"/>-->
+<!--                        <div class="o_row" name="housing_allowance">-->
+<!--                            <field name="housing_allowance" nolabel="1"/>-->
+<!--                            <span>/ month</span>-->
+<!--                        </div>-->
+                        <label for="mobile_allowance"/>
+                        <div class="o_row" name="mobile_allowance">
+                            <field name="mobile_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="fuel_allowance"/>
+                        <div class="o_row" name="fuel_allowance">
+                            <field name="fuel_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="ticket_allowance"/>
+                        <div class="o_row" name="ticket_allowance">
+                            <field name="ticket_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="commission_allowance"/>
+                        <div class="o_row" name="commission_allowance">
+                            <field name="commission_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="other_allowance"/>
+                        <div class="o_row" name="other_allowance">
+                            <field name="other_allowance" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+
+                    </group>
+                    <group name="deductions" string="Deductions">
+                        <label for="esob_deduction"/>
+                        <div class="o_row" name="esob_deduction">
+                            <field name="esob_deduction" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="leave_deduction"/>
+                        <div class="o_row" name="leave_deduction">
+                            <field name="leave_deduction" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="iqama_fees_deduction"/>
+                        <div class="o_row" name="iqama_fees_deduction">
+                            <field name="iqama_fees_deduction" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="work_permit_fees_deduction"/>
+                        <div class="o_row" name="work_permit_fees_deduction">
+                            <field name="work_permit_fees_deduction" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <label for="work_permit_fees_deduction"/>
+                        <div class="o_row" name="work_permit_fees_deduction">
+                            <field name="work_permit_fees_deduction" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                        <separator string="Taxes"/>
+                        <field name="tax_deduction" widget="percentage"/>
+                        <field name="tax_deduction_amount"/>
+                        <separator string="GOSI"/>
+                        <field name="gosi_suodi"/>
+
+
+                        <label for="gosi_percent"/>
+                        <div class="o_row">
+                            <field name="gosi_percent" nolabel="1" class="oe_inline"/> <span>%</span>
+                            <field name="gosi_deduction" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/> <span>/ month</span>
+                        </div>
+
+                        <label for="occupational_hazards"/>
+                        <div class="o_row">
+                            <field name="occupational_hazards" nolabel="1" class="oe_inline" /><span>%</span>
+                            <field name="amount_occupational_hazards" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/><span>/ month</span>
+                        </div>
+
+                        <label for="pension_insurance" attrs="{'invisible':[('gosi_suodi','=',False)]}"/>
+                        <div class="o_row" attrs="{'invisible':[('gosi_suodi','=',False)]}">
+                            <field name="pension_insurance" nolabel="1" class="oe_inline" /><span>%</span>
+                            <field name="amount_pension_insurance" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/><span>/ month</span>
+                        </div>
+
+                        <label for="company_pension_insurance" attrs="{'invisible':[('gosi_suodi','=',False)]}"/>
+                        <div class="o_row" attrs="{'invisible':[('gosi_suodi','=',False)]}">
+                            <field name="company_pension_insurance" nolabel="1" class="oe_inline" /><span>%</span>
+                            <field name="amount_company_pension_insurance" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/><span>/ month</span>
+                        </div>
+
+                        <label for="saned" attrs="{'invisible':[('gosi_suodi','=',False)]}"/>
+                        <div class="o_row" attrs="{'invisible':[('gosi_suodi','=',False)]}">
+                            <field name="saned" nolabel="1" class="oe_inline" /><span>%</span>
+                            <field name="amount_saned" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/><span>/ month</span>
+                        </div>
+
+                        <label for="company_saned" attrs="{'invisible':[('gosi_suodi','=',False)]}"/>
+                        <div class="o_row" attrs="{'invisible':[('gosi_suodi','=',False)]}">
+                            <field name="company_saned" nolabel="1" class="oe_inline" /><span>%</span>
+                            <field name="amount_company_saned" class="oe_inline" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/><span>/ month</span>
+                        </div>
+                         <separator string="Medical Insurance"/>
+                            <field name="medical_insurance_type_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="medical_insurance_deduction"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//group[@name='salary']" position="inside">
+                <field name="total_wage"/>
+                <field name="wage_day" string="Basic Salary (Day)"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

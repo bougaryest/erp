@@ -1,0 +1,429 @@
+<odoo>
+
+
+
+
+<!--    <template id="report_quotation_spark">-->
+<!--        <t t-call="web.external_layout">-->
+<!--            <div class="page" t-attf-style="#{'direction: ltr' if 'ar' in user.lang else ' direction: ltr'}">-->
+<!--                <style type="text/css">-->
+<!--                    .hide-line {-->
+<!--                    border: 0px solid black;-->
+<!--                    border:medium none;-->
+<!--                    clear:both;-->
+<!--                    display:block;-->
+<!--                    font-size:0px;-->
+<!--                    min-height:2px;-->
+<!--                    line-height:0;-->
+<!--                    margin: 0px 0px 0px 0px-->
+<!--                    }-->
+
+<!--                    .force-right {-->
+<!--                    text-align: right !important;-->
+<!--                    clear: both;display: inline-block;overflow: hidden;white-space: nowrap;-->
+<!--                    float: right !important;-->
+<!--                    }-->
+<!--                    .force-left {-->
+<!--                    text-align: left !important;-->
+<!--                    clear: both;display: inline-block;overflow: hidden;white-space: nowrap;-->
+<!--                    float: left !important;-->
+<!--                    }-->
+<!--                    tr ,td , th{-->
+<!--                    padding : 2px! important;-->
+<!--                    font-size:12px,-->
+<!--                    }-->
+<!--                    div{-->
+<!--                    font-size:12px-->
+<!--                    }-->
+<!--                    .none-border {-->
+<!--                    border:medium none !important;-->
+<!--                    }-->
+<!--                    .pdf-watermark {-->
+<!--                    display: flex;-->
+<!--                    position: relative;-->
+<!--                    }-->
+
+<!--                    .text-pdf-watermark {-->
+<!--                    width: 100%;-->
+<!--                    opacity:0.2;-->
+<!--                    color:lightgrey;-->
+<!--                    position: absolute;-->
+<!--                    }-->
+
+<!--                </style>-->
+<!--                <div class="pdf-watermark">-->
+<!--                    <img class="text-pdf-watermark" src="/fan_advanced/static/mark.jpg"/>-->
+<!--                </div>-->
+<!--                <table class="table table-sm pull-right" style="width:50% ;display: inline-block;" dir="rtl">-->
+<!--                    <tr>-->
+<!--                        <td   style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}"-->
+<!--                                  style="white-space: nowrap;">التـــــــــــاريــــــــــــــــــــــخ :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border" >-->
+<!--                            <span t-field="o.date_order"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                رقـــــم الـــــــعـــرض :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border">-->
+<!--                            <div class="pull-left">-->
+<!--                                <span style="color:red" t-field="o.name"/>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                صلاحية العرض :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border" >-->
+<!--                            <span>10 أيام من تاريخ عرض السعر</span>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                الرقم الضــــريبي :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;"  class="text-left none-border">-->
+<!--                            <span t-field="o.partner_id.vat"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--                <table class="table table-sm pull-left" style="width:50% ;display: inline-block;" dir="rtl">-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                الشــركـة :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border">-->
+<!--                            <span t-field="o.partner_id.name"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}"-->
+<!--                                  style="white-space: nowrap;">الســـــيــد :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border" >-->
+<!--&lt;!&ndash;                            <span t-field="o.partner_id.attention_id.name"/>&ndash;&gt;-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                العنوان :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border" >-->
+<!--                            <div class="pull-left">-->
+<!--                                <div t-field="o.partner_id"-->
+<!--                                     t-options='{"widget": "contact", "fields": ["address","phone"], "no_marker": True}'/>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td style="width:20% ;" class="none-border">-->
+<!--                            <span t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                                س   ت  :-->
+<!--                            </span>-->
+<!--                        </td>-->
+<!--                        <td  style="width:30% ;" class="text-left none-border">-->
+<!--                            <span t-field="o.partner_id.partner_registry"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--                <table class="table table-sm " style="width:100%" name="invoice_line_table" dir="rtl">-->
+<!--                    <tr style="border: 2px solid black;">-->
+<!--                        <th class="text-center" style="background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>الرقم</span>-->
+<!--                            <br/>-->
+<!--                            <span>.No</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>الصنف</span>-->
+<!--                            <br/>-->
+<!--                            <span>ITEM</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>الحجم</span>-->
+<!--                            <br/>-->
+<!--                            <span>SIZE</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>التوصيف</span>-->
+<!--                            <br/>-->
+<!--                            <span>DESCRIPTION</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="  background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>الكمية</span>-->
+<!--                            <br/>-->
+<!--                            <span>QUANTITY</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>السعر </span>-->
+<!--                            <br/>-->
+<!--                            <span> PRICE</span>-->
+<!--                        </th>-->
+<!--                        <th class="text-center" style="  background-color: #e6e6e6;border: 2px solid black;">-->
+<!--                            <span>المجموع</span>-->
+<!--                            <br/>-->
+<!--                            <span>TOTAL</span>-->
+<!--                        </th>-->
+<!--                    </tr>-->
+<!--                <tbody class="sale_tbody">-->
+<!--                    <t t-set="index" t-value="0"/>-->
+<!--                    <t t-set="current_subtotal" t-value="0"/>-->
+<!--                    <t t-set="line_total" t-value="0"/>-->
+
+<!--                    <t t-foreach="o.order_line" t-as="line">-->
+
+<!--                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"-->
+<!--                           groups="account.group_show_line_subtotals_tax_excluded"/>-->
+<!--                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"-->
+<!--                           groups="account.group_show_line_subtotals_tax_included"/>-->
+
+<!--                        <t t-set="line_total" t-value="line.product_uom_qty * line.price_unit"/>-->
+
+<!--                        <tr style="border: 2px solid black;"-->
+<!--                            t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">-->
+<!--                            <t t-if="not line.display_type">-->
+<!--                                <t t-if="line.product_id">-->
+<!--                                    <t t-set="index" t-value="index + 1"/>-->
+<!--                                    <td class="text-center border-solid" style="border: 2px solid black;">-->
+<!--                                        <span t-esc="index" class="text-center"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_quantity" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-field="line.product_id.name"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_quantity" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-field="line.size_line"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_name" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-field="line.name"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_quantity" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-field="line.product_uom_qty"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_priceunit" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-field="line.price_unit"/>-->
+<!--                                    </td>-->
+<!--                                    <td name="td_subtotal" class="text-center border-solid"-->
+<!--                                        style="border: 2px solid black;">-->
+<!--                                        <span t-esc="line_total"-->
+<!--                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+<!--                                    </td>-->
+<!--                                </t>-->
+<!--                            </t>-->
+<!--                            <t t-if="line.display_type == 'line_section'">-->
+<!--                                <td name="td_section_line" colspan="99" class="border-solid">-->
+<!--                                    <span t-field="line.name"/>-->
+<!--                                </td>-->
+<!--                                <t t-set="current_section" t-value="line"/>-->
+<!--                                <t t-set="current_subtotal" t-value="0"/>-->
+<!--                            </t>-->
+<!--                            <t t-if="line.display_type == 'line_note'">-->
+<!--                                <td name="td_note_line" colspan="99" class="border-solid">-->
+<!--                                    <span t-field="line.name"/>-->
+<!--                                </td>-->
+<!--                            </t>-->
+<!--                        </tr>-->
+
+<!--                        <t t-if="current_section and (line_last or o.order_line[line_index+1].display_type == 'line_section')">-->
+<!--                            <tr class="is-subtotal text-right">-->
+<!--                                <td name="td_section_subtotal" colspan="99" class="border-solid">-->
+<!--                                    <strong class="mr18">Subtotal</strong>-->
+<!--                                    <span-->
+<!--                                            t-esc="current_subtotal"-->
+<!--                                            t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'-->
+<!--                                    />-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </t>-->
+<!--                    </t>-->
+<!--                    <tr>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-left none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center" style="border: 2px solid black;background-color: #e6e6e6;">-->
+<!--                            <span style="color:red">المجموع</span>-->
+<!--                        </td>-->
+<!--                        <td class="text-center " style="border: 2px solid black; background-color: #e6e6e6;">-->
+<!--                            <t t-set="line_total" t-value="0"/>-->
+<!--                            <t t-set="total" t-value="0"/>-->
+<!--                            <t t-foreach="o.order_line" t-as="line">-->
+<!--                                <t t-set="line_total" t-value="line.product_uom_qty * line.price_unit"/>-->
+<!--                                <t t-set="total" t-value="total + line_total"/>-->
+<!--                            </t>-->
+<!--                            <span t-esc="total"-->
+<!--                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-left none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center" style="border: 2px solid black;background-color: #e6e6e6;">-->
+<!--                            <span style="color:red">الخصم</span>-->
+<!--                        </td>-->
+<!--                        <td class="text-center " style="border: 2px solid black; background-color: #e6e6e6;">-->
+<!--                            <span t-esc="o.amount_discount"-->
+<!--                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-left none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center" style="border: 2px solid black;background-color: #e6e6e6;">-->
+<!--                            <span style="color:red">الإجمالي بعد الخصم</span>-->
+<!--                        </td>-->
+<!--                        <td class="text-center " style="border: 2px solid black; background-color: #e6e6e6;">-->
+<!--                            <span t-esc="o.amount_untaxed"-->
+<!--                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-left none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center" style="border: 2px solid black;background-color: #e6e6e6;">-->
+<!--                            <span style="color:red">ضريبة القيمة المضافة</span>-->
+<!--                        </td>-->
+<!--                        <td class="text-center " style="border: 2px solid black; background-color: #e6e6e6;">-->
+
+<!--                            <span t-field="o.amount_tax"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-left none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center none-border">-->
+
+<!--                        </td>-->
+<!--                        <td class="text-center" style="border: 2px solid black;background-color: #e6e6e6;">-->
+<!--                            <span style="color:red">المجموع الكلي</span>-->
+<!--                        </td>-->
+<!--                        <td class="text-center " style="border: 2px solid black; background-color: #e6e6e6;">-->
+<!--                            <span t-field="o.amount_total"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                </tbody>-->
+<!--                </table>-->
+<!--                <div t-attf-class="#{'pull-left text-left' if 'ar' in user.lang else 'pull-right text-right'}">-->
+<!--                    <div t-if="o.sale_terms_and_conditions" class="text-left pull-left" style="font-size:14px">-->
+<!--                        <span dir="rtl" t-field="o.sale_terms_and_conditions"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <br/>-->
+<!--                <hr class="hide-line"/>-->
+
+<!--                <hr class="hide-line"/>-->
+<!--                <center style="color:red">شـكـرا لاختيـاركــم الـعـمـل مـعـنــا</center>-->
+<!--                <br/>-->
+<!--            </div>-->
+<!--        </t>-->
+
+
+<!--    </template>-->
+<!--    <template id="report_quotation_spark">-->
+<!--        <t t-call="web.html_container">-->
+<!--            <t t-foreach="docs" t-as="o">-->
+<!--                <t t-call="spark_advanced.action_report_invoice_spark"/>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+<!--    <record id="action_report_invoice_spark" model="ir.actions.report">-->
+<!--        <field name="name">Spark QUOTATION</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">spark_advanced.report_quotation_spark</field>-->
+<!--        <field name="report_file">spark_advanced.report_quotation_spark</field>-->
+<!--        <field name="print_report_name"></field>-->
+<!--        <field name="binding_model_id" ref="sale.model_sale_order"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+
+
+
+
+
+</odoo>
+
+
