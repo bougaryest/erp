@@ -16,21 +16,21 @@
                             <field name="overtime_allowance" nolabel="1"/>
                             <span>/ month</span>
                         </div>
-                        <label for="transportation_allowance"/>
-                        <div class="o_row" name="transportation_allowance">
-                            <field name="transportation_allowance" nolabel="1"/>
-                            <span>/ month</span>
-                        </div>
+<!--                        <label for="transportation_allowance"/>-->
+<!--                        <div class="o_row" name="transportation_allowance">-->
+<!--                            <field name="transportation_allowance" nolabel="1"/>-->
+<!--                            <span>/ month</span>-->
+<!--                        </div>-->
                         <label for="food_allowance"/>
                         <div class="o_row" name="food_allowance">
                             <field name="food_allowance" nolabel="1"/>
                             <span>/ month</span>
                         </div>
-                        <label for="housing_allowance"/>
-                        <div class="o_row" name="housing_allowance">
-                            <field name="housing_allowance" nolabel="1"/>
-                            <span>/ month</span>
-                        </div>
+<!--                        <label for="housing_allowance"/>-->
+<!--                        <div class="o_row" name="housing_allowance">-->
+<!--                            <field name="housing_allowance" nolabel="1"/>-->
+<!--                            <span>/ month</span>-->
+<!--                        </div>-->
                         <label for="mobile_allowance"/>
                         <div class="o_row" name="mobile_allowance">
                             <field name="mobile_allowance" nolabel="1"/>
