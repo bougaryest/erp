@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="addons" />
     <orderEntry type="module" module-name="odoo15-custom_modules" />
+    <orderEntry type="module" module-name="enterprise" />
   </component>
 </module>
