@@ -7,4 +7,4 @@ class PosConfig(models.Model):
 
 
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
-                                check_company=True)
+                                )

@@ -7,7 +7,7 @@ class PosOrder(models.Model):
 
 
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
-                                check_company=True)
+                                )
 
     @api.model
     def _process_order(self, order, draft, existing_order):

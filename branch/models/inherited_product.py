@@ -22,7 +22,7 @@ class ProductTemplateIn(models.Model):
         return res
 
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
-                                check_company=True)
+                                )
     @api.onchange('company_id')
     def onchange_company_id(self):
         if self.company_id and self.branch_id.company_id.id != self.company_id.id:
