@@ -7,7 +7,7 @@ class StockWarehouse(models.Model):
     _inherit = 'stock.warehouse'
 
     branch_id = fields.Many2one('res.branch', string="Branch", domain="[('company_id', '=',company_id)]",
-                                check_company=True)
+                                )
 
 
     @api.model

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="res_branch_ir_sequence_view_" model="ir.ui.view">
+        <record id="res_branch_ir_sequence_view" model="ir.ui.view">
             <field name="name">ir.sequence.view.res.branch</field>
             <field name="model">res.branch</field>
             <field name="inherit_id" ref="branch.branch_res_branch_view_form" />
