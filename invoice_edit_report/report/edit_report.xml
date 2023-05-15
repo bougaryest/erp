@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="electronic_report_inherit" inherit_id="electronic_invoice.report_electronic_tax_invoice_document">
+            <xpath expr="//div[hasclass('col-7')]/div[last()]" position="after">
+                <div class="row border-gray">
+                    <div class="col-4">
+                        <Strong>Branch</Strong>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span t-field="o.branch_id"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <Strong>الفرع</Strong>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
